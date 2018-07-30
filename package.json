@@ -1,5 +1,6 @@
 {
   "name": "app-base-demo",
+  "author":"rahul.wu",
   "version": "1.0.0",
   "description": "egg.js",
   "private": true,
