@@ -1,6 +1,6 @@
 {
   "name": "app-base-demo",
-  "author":"rahul.wu",
+  "author": "rahul.wu",
   "version": "1.0.0",
   "description": "egg.js",
   "private": true,
@@ -48,6 +48,5 @@
     "type": "git",
     "url": ""
   },
-  "author": "rahul.wu",
   "license": "MIT"
 }

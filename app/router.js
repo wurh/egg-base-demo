@@ -29,4 +29,8 @@ module.exports = app => {
   app.del('/users/:user_id/posts/:id', 'post.del');
 
 
+    app.get('/logistics/query', app.controller.logistics.find);
+    app.get('/logistics/getOrders', app.controller.logistics.getOrderFromFile);
+
+
 };
