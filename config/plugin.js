@@ -1,15 +1,15 @@
 'use strict';
 
-// had enabled by egg
-// exports.static = true;
-
-// config/plugin.js
-exports.nunjucks = {
-    enable: true,
-    package: 'egg-view-nunjucks'
-  };
-
-exports.sequelize = {
-  enable: true,
-  package: 'egg-sequelize'
-}
+/** @type Egg.EggPlugin */
+module.exports = {
+    // for sequelize plugin
+    "sequelize": {
+      enable: true,
+      package: 'egg-sequelize',
+    },
+    
+  // had enabled by egg
+  // static: {
+  //   enable: true,
+  // }
+};

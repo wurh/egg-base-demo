@@ -1,23 +1,23 @@
+
 'use strict';
 
 module.exports = app => {
-  const { STRING, INTEGER, DATE } = app.Sequelize;
-
-  const User = app.model.define('user', {
-    id: {
-      type: INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    name: STRING(30),
-    age: INTEGER,
-    created_at: DATE,
-    updated_at: DATE,
-  });
-
-  User.prototype.associate = function() {
-    app.model.User.hasMany(app.model.Post, { as: 'posts', foreignKey: 'user_id' });
+    const { 
+        INTEGER, 
+        DATE,
+        STRING,
+     } = app.Sequelize;
+  
+    const User = app.model.define('user', {
+        name:STRING(45),
+        group_id:INTEGER,
+        gender:INTEGER,
+        age:INTEGER,
+        created_at:DATE,
+        updated_at:DATE,
+    });
+    User.associate = () => {
+        app.model.User.belongsTo(app.model.Usergroup,{ foreignKey:'group_id',targetKey:'id'});
+      }
+    return User;
   };
-
-  return User;
-};

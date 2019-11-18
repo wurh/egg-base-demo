@@ -1,36 +1,13 @@
 'use strict';
 
+/**
+ * @param {Egg.Application} app - egg application
+ */
 module.exports = app => {
-  app.get('/', app.controller.home.index);
-
-
-  //yamibuy爬虫
-  app.get('/yamibuy/save', app.controller.yamibuy.save);
-  app.get('/yamibuy/query', app.controller.yamibuy.list);
-
-  //读取本地配置
-  app.get('/base/getCategories', app.controller.base.getCategories);
-
-  // 获取用户列表数据
-  app.router.get('/users', 'user.users');
-  // 根据ID 获取用户数据
-  app.router.get('/users/:id', 'user.user');
-  // 创建用户数据
-  app.router.post('/users', 'user.create');
-  // 更新用户数据
-  app.router.put('/users/:id', 'user.update');
-  // 删除用数据
-  app.del('/users/:id', 'user.del');
-
-  app.router.get('/posts', 'post.posts');
-  app.router.get('/posts/:id', 'post.post');
-  app.router.post('/users/:user_id/posts', 'post.create');
-  app.router.put('/users/:user_id/posts/:id', 'post.update');
-  app.del('/users/:user_id/posts/:id', 'post.del');
-
-
-    app.get('/logistics/query', app.controller.logistics.find);
-    app.get('/logistics/getOrders', app.controller.logistics.getOrderFromFile);
-
-
+  const { router, controller } = app;
+  router.get('/', controller.home.index);
+  router.get('/api/user/list', controller.user.admin.getUser);
+  router.post('/api/user/add', controller.user.admin.addUser);
+  router.post('/api/user/update', controller.user.admin.updateUser);
+  router.post('/api/user/del', controller.user.admin.delUser);
 };

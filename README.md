@@ -1,6 +1,6 @@
-# sample
+# base-demo
 
-egg.js
+
 
 ## QuickStart
 
