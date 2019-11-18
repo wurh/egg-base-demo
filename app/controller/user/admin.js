@@ -36,6 +36,12 @@ class UserController extends Controller {
                 order: [
                     ['created_at', 'DESC'],
                 ],
+                include: [
+                    {
+                        model: app.model.Usergroup,
+                        attributes:["id","name"]
+                    },
+                ],
             })
             this.success(res);
         } catch (error) {
